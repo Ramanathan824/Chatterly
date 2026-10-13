@@ -1,0 +1,158 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101923">
+
+    <title>Chatterly — Your AI Chat Companion</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+        <a href="/" class="brand">
+            <span class="brand-icon">C</span>
+            <span>chatterly<span class="brand-dot">.</span></span>
+        </a>
+
+        <button class="new-chat" id="new-chat">
+            <span class="plus-icon">+</span>
+            New conversation
+        </button>
+
+        <div class="sidebar-label">YOUR SPACE</div>
+
+        <div class="sidebar-item active">
+            <span>▤</span>
+            <span>Current conversation</span>
+        </div>
+
+        <div class="sidebar-note">
+            <span class="note-icon">✳</span>
+            <p>A little curiosity can lead to big ideas.</p>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="avatar">C</div>
+            <div>
+                <strong>Chatterly</strong>
+                <span>Personal chatbot</span>
+            </div>
+            <span class="status-dot"></span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <div class="topbar-title">Your conversation</div>
+                <div class="connection-status">
+                    <span class="status-dot"></span>
+                    Ready to chat
+                </div>
+            </div>
+
+            <div class="topbar-badge">
+                <span>✦</span> Simple by design
+            </div>
+        </header>
+
+        <section class="chat-area" id="chat-box">
+
+            <div class="welcome-section" id="welcome-section">
+                <div class="welcome-icon">
+                    <span>✳</span>
+                </div>
+
+                <div class="eyebrow">A SPACE FOR CURIOSITY</div>
+
+                <h1>Good ideas start<br>with <span>a conversation.</span></h1>
+
+                <p class="welcome-description">
+                    Hey there! I'm Chatterly. Ask me about programming,
+                    explore a new concept, or just say hello.
+                </p>
+
+                <div class="suggestion-heading">NOT SURE WHERE TO START?</div>
+
+                <div class="suggestion-grid">
+                    <button class="suggestion-card" data-prompt="what is python">
+                        <span class="suggestion-icon mint">Py</span>
+                        <span>
+                            <strong>Explore Python</strong>
+                            <small>Discover the basics</small>
+                        </span>
+                        <span class="card-arrow">↗</span>
+                    </button>
+
+                    <button class="suggestion-card" data-prompt="what is api">
+                        <span class="suggestion-icon blue">{ }</span>
+                        <span>
+                            <strong>Understand APIs</strong>
+                            <small>How apps communicate</small>
+                        </span>
+                        <span class="card-arrow">↗</span>
+                    </button>
+
+                    <button class="suggestion-card" data-prompt="what is django">
+                        <span class="suggestion-icon purple">D</span>
+                        <span>
+                            <strong>Discover Django</strong>
+                            <small>Build with Python</small>
+                        </span>
+                        <span class="card-arrow">↗</span>
+                    </button>
+
+                    <button class="suggestion-card" data-prompt="tell me a joke">
+                        <span class="suggestion-icon amber">✳</span>
+                        <span>
+                            <strong>Lighten the mood</strong>
+                            <small>Ask for a little fun</small>
+                        </span>
+                        <span class="card-arrow">↗</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="composer-section">
+            <form id="chat-form" class="composer">
+                {% csrf_token %}
+
+                <input
+                    type="text"
+                    id="message"
+                    name="message"
+                    placeholder="Message Chatterly..."
+                    autocomplete="off"
+                    maxlength="1000"
+                    required
+                >
+
+                <button type="submit" class="send-button" aria-label="Send message">
+                    <span>↑</span>
+                </button>
+            </form>
+
+            <p class="composer-caption">
+                Chatterly is a simple rule-based chatbot. Responses may be limited.
+            </p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="{% static 'script.js' %}"></script>
+</body>
+</html>
